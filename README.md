@@ -19,22 +19,6 @@ As such, two business requirements have been agreed with the client:
 * **BR1** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
 * **BR2** The client is interested in predicting the house sales price from her four inherited houses, and any other house in Ames, Iowa.
 
-Based on these business requirements and considering the potential needs of the user, a number of epics and user stories have been developed. These also map to the CRISP-DM (Cross Industry Standard Process for Data Mining) workflow shown below:
-
-<img src="assets/images/crisp-dm.png" alt="CRISP-DM process">
-
-Epic 1: Business Understanding
-
-Epic 2: Information gathering and data collection
-
-Epic 3: Data visualisation, cleaning, and preparation
-
-Epic 4: Model training, optimisation and validation
-
-Epic 5: Dashboard planning, designing, and development
-
-Epic 6: Dashboard deployment and release
-
 ## Dataset Content
 * The dataset for this project is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). A fictitious user story was created, where predictive analytics can be applied as in a real project in the workplace. 
 * The dataset has 1460 observations and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
@@ -107,10 +91,56 @@ The following hypotheses were developed based on general knowledge of housing an
     - We conclude that the year of construction of a house is positively correlated with its sale price.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
-[Map the business requirements in a User Story based format to each of the Data Visualization and ML Tasks along with the specific actions required for the enablement of each task.]
-[Ensure at least 1 ML task is mentioned in the “Rationale to map the business requirements to the Data Visualizations and ML tasks” section in the README file.]
 
+* The two business requirements that have been agreed with the client are:
+
+* **BR1** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
+* **BR2** The client is interested in predicting the house sales price from her four inherited houses, and any other house in Ames, Iowa.
+
+Based on these business requirements and considering the potential needs of the various types of user, a number of Epics and User Stories have been developed. The Epics also map to the CRISP-DM (Cross Industry Standard Process for Data Mining) workflow shown below:
+
+<img src="assets/images/crisp-dm.png" alt="CRISP-DM process">
+
+**Epic 1:** Business Understanding
+
+**Epic 2:** Information gathering and data collection
+
+**Epic 3:** Data visualisation, cleaning, and preparation
+
+**Epic 4:** Model training, optimisation and validation
+
+**Epic 5:** Dashboard planning, designing, and development
+
+**Epic 6:** Dashboard deployment and release
+
+* User Stories relating to BR1 are addressed in the [data analysis notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/03-data-analysis.ipynb) and are as follows:
+    - **US1:** As any user, I want to know which attributes of a house are most correlated with its sale price so that I can base my predictions on the most appropriate features.
+        - Task: produce heatmaps for Spearman and Pearson correlations and Power Predictive Score, and note which input variables are most highly correlated with the sale price.
+    - **US2:** As any user, I want to see graphs showing the relationship between the relevant input variables and the target variable, so that I can understand the relationships between sale price and other features.
+        - Task: produce appropriate graphs (scatter graphs for numerical variables, violin plots for categorical variables and line graphs for time series variables) to illustrate the relationships between the relevant input variables and the target.
+    - **US3:** As any user, I want to understand the project hypotheses and how they were validated, so that I can better understand the determinants of a property's sale price.
+        - Task: interpret the data from the heatmaps described above and highlight how these data confirm the project hypotheses.
+
+* User Stories relating to BR2 are addressed in the [modelling and evaluation notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/05-modelling-evaluation.ipynb) and the dashboard, and are as follows:
+    - **US4:** As the client, I want to be able to reliably predict the sale price of the houses I have inherited, so that I can sell them for the greatest possible price.
+        - Task: conduct regression analysis using machine learning so that the sale price can be predicted from the most relevant features (note: regression analysis is a supervised ML task that is used to predict the value of the label from a set of related features)
+        - Note: if the model's performance using regression analysis is poor, this could be changed to a classification problem: another supervised ML task, but where the category of a house's sale price is predicted rather than a value. Categories in this case could be in a format such as "up to and including price A", "between price A and price B", "equal to or greater than price B".
+    - **US5:** As any user, I want to have interactive input widgets in my dashboard, so that I can provide new data relating to features of a house and obtain a prediction of its likely sale price.
+        - Task: Develop a dashboard that provides the appropriate interface for the user to interact with the data and obtain a price prediction based on newly obtained information.
+    - **US6:** As any user, I want to be able to access the pipelines that were used in the model, so that these can be used with new data and allow me to predict the sale price of houses that were not in the original dataset.
+        - Task: Develop functionality that provides the pipelines and technology to the dashboard that enables the price prediction to function correctly based on new data that the user inputs.
+    - **US7:** As a technical user, I want to understand the ML steps that were used to predict the sale price, so that I can understand the model that was used.
+        - Task: Present clear information relating to the ML development process.
+    - **US8:** As a technical user, I want to know the technical details relating to model performance, so that I can understand how reliable the predictions are.
+        - Task: Note the model evaluation metrics and display the regression evaluation plots relating to train and test sets.
+
+* User Stories relating to both BRs are addressed in the dashboard, and are as follows:
+    - **US9:** As the client, I want to be able to access a dashboard that is easy to interpret and use, so that I can easily view the results of the analysis and modelling.
+        - Task: Provide a dashboard to the client and ensure that it is clear and easy to use, with any necessary instructions provided to the user.
+    - **US10:** As any user, I want the dashboard to be available online, so that it is readily accessible for all users.
+        - Task: Deploy the dashboard to a web server or hosting platform such as Heroku for convenient access through a web browser.
+    - **US11:** As any user, I want to understand the dataset that was used in the analysis and the model training, so that I understand the dataset and the quality and limitations of the analysis and modelling.
+        - Task: Provide a clear description of the dataset in the dashboard.
 
 ## ML Business Case
 * In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
