@@ -55,7 +55,7 @@ As such, two business requirements have been agreed with the client:
 
 **Project hypotheses and their validation processes**
 
-The following hypotheses were developed based on general knowledge of housing and of what features are likely to correlate with higher sale price of a property, in combination with the available features in the dataset (for example, we suspect that the location of a properly is likely to be highly relevant, but none of the features in the dataset provides information regarding location, so this is not referenced in our hypotheses).
+The following hypotheses were developed based on general knowledge of housing and of what features are likely to correlate with higher sale price of a property, in combination with the available features in the dataset (for example, we suspect that the precise location of a properly is likely to be highly relevant, but none of the features in the dataset provides detailed information regarding location, so this is not referenced in our hypotheses).
 * The hypotheses relate to correlation. Note that they do not reference causation, since correlation in and of itself does not prove causation, although in this case it is highly likely that there is a causative relationship.
 * The hypotheses were validated as follows:
     - Once the hypotheses had been clearly stated, the dataset needed to be examined for evidence of the hypothesised correlations.
@@ -94,8 +94,8 @@ The following hypotheses were developed based on general knowledge of housing an
 
 * The two business requirements that have been agreed with the client are:
 
-* **BR1** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
-* **BR2** The client is interested in predicting the house sales price from her four inherited houses, and any other house in Ames, Iowa.
+* **BR1:** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
+* **BR2:** The client is interested in predicting the house sales price from her four inherited houses, and any other house in Ames, Iowa.
 
 Based on these business requirements and considering the potential needs of the various types of user, a number of Epics and User Stories have been developed. The Epics also map to the CRISP-DM (Cross Industry Standard Process for Data Mining) workflow shown below:
 
@@ -142,17 +142,47 @@ Based on these business requirements and considering the potential needs of the 
     - **US11:** As any user, I want to understand the dataset that was used in the analysis and the model training, so that I understand the dataset and the quality and limitations of the analysis and modelling.
         - Task: Provide a clear description of the dataset in the dashboard.
 
-## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+## Machine Learning Business Case
+
 [Articulate a Business Case for each Machine Learning task which must include the aim behind the predictive analytics task, the learning method, the ideal outcome for the process, success/failure metrics, model output and its relevance for the user, and any heuristics and training data used.]
 [ensure proper ML terminology is used In the “ML Business Case” section at the README file, as described in the LMS section “Machine Learning Essentials” : “Machine Learning Terminology”]
 
-We want an ML model to predict the sale price in US dollars of properties in Ames, Iowa, USA. The sale price is the target variable (also referred to as the label), i.e., the variable that we are interested in predicting.
-Our ideal outcome is...
-The model success metrics are...
-The output is defined...
-Heuristics...
-The training data...
+* A Machine Learning model will be trained in order to meet the second business requirement (BR2).
+
+* We want an ML model to predict the sale price in US dollars of properties in Ames, Iowa, USA.
+    - The model should allow our client to predict the sale price of four houses that she has inherited.
+    - It should also allow prediction of the sale price of other houses with similar attributes.
+
+* Since we are predicting a value that is a continuous variable, using a number of predictor variables, the most appropriate ML task is linear regression (a supervised ML task).
+    - The sale price is the target variable, i.e., the variable that we are interested in predicting.
+
+* Our ideal outcome is to develop a model that will provide reliable predictions of the sale price of a house based on its known attributes.
+
+* The model success metrics are:
+    - **The model should achieve an R2 score of at least 0.75 on both train and test set.**
+        - R2 is a statistical measure that describes the proportion of variance in the data that is explained by the model.
+        - That is, it shows how well a regression model predicts the outcome of observed data.
+        - Values range from 0 to 1.
+        - As such, a R2 value of 0.75 means that the model provides a good, but not perfect, prediction of the target variable (sale price) based on the input variables.
+    - The model will be considered to have failed if it does not achieve an R2 score of at least 0.75. In this case, other modelling techniques could be considered to try and develop a model that achieves a satisfactory performance.
+    - We will also evaluate the mean absolute error, mean squared error and the root mean squared error.
+        - However, these are not used separately to evaluate the model performance and are presented here for information only.
+
+* The output is defined as a continuous value for sale price in US dollars.
+    - Since the client wishes to find the total sale price for four inherited houses, we will also present the summed predicted sale price for the four houses. However, this will not be included in the live prediction of the model, since the user will enter data for one house at a time.
+
+* Heuristics in general are problem-solving techniques that provide quick and approximate solutions when traditional, more complex methods might be slow or impractical.
+    - Heuristics can also serve as preprocessing steps for more advanced machine learning models. For example, they can help in identifying relevant features or patterns that can be used in the development of a predictive model.
+    - In this case, our client might base her first approximation of a house's sale price on the sale price of nearby houses that she observes with similar attributes.
+    - We also note that she has a good understanding of property prices in her home country of Belgium. As a first approximation, then, she might expect that properties that would achieve high sale prices in Belgium would also achieve high sale prices in Ames, Iowa.
+    - This type of analysis would allow the client to produce a rough estimate of the value of her properties.
+    - However, she is interested in maximising the sale price for the properties, and as such would like a more detailed analysis, in order to provide a more accurate and reliable estimate of the likely sale price of the properties.
+    - We therefore proceed with the development of a machine learning model.
+
+* The training data are a public dataset with house prices for Ames, Iowa, that our client has found via an online search.
+    - The dataset contains 1460 observations and 22 features.
+    - We do not have information about the recency or reliability of these data, and we note that there are some missing values in the dataset, which have been handled in the [data cleaning notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/02-data-cleaning.ipynb)
+    - Ideally we would check whether the dataset is recent or not before proceeding, since house prices can fluctuate significantly over time, and would prefer a dataset whose reliability has been verified and which has no missing values. However, here we can simply note this as a possible limitation of our dataset, and hence our model and its predictions.
 
 ## Dashboard Design
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
