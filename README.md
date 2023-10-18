@@ -238,28 +238,67 @@ Based on these business requirements and considering the potential needs of the 
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+## Technologies, Libraries and Packages
 
+### Technologies
+* GitHub was used to create the project's repository and store the project's files
+* VS Code was used to create and edit the project's files
+* Within VS Code, Jupyter was used to create the notebooks for data collection, cleaning, and analysis, feature engineering, and training and evaluation of the ML model
+* Streamlit was used to create the dashboard
+* Heroku was used to deploy the project
+* Kaggle was used to source the dataset for this project, and provide an API token to allow it to be imported
+
+### Libraries and Packages
+
+* ydata_profiling was used to inspect each variable in the dataset to better understand the data 
+* NumPy was used for basic mathematical operations such as calculation of standard deviations and mean values, as well as to generate arrays of random numbers such as the mask of zeros used in the correlation heatmaps
+* Pandas was used for tasks including:
+    - Operations involving CSV files (loading existing CSV files and saving datasets to new CSV files)
+    - Creating and modifying series and dataframes
+* Matplotlib was used for constructing plots to visualise the data analyses
+* Seaborn augments the functionalties of matplotlib and was used to create the heatmaps and regression evaluation plots
+
+* Feature Engine was used for a number of machine learning tasks:
+    - One Hot Encoding and OrdinalEncoder were used to encode categorical variables for correlation analyses and modelling respectively
+    - The LogTransformer, Yeo-Johnson and power transformers were used to transform the data in order to make it more normally distributed
+    - SmartCorrelatedSelection was used to identify and remove correlated features from the dataset before modelling took place
+
+* SciKit Learn was also used for several machine learning tasks and operations:
+
+    - Importing the majority of the algorithms used to train the model
+    - Pipeline function for building machine learning pipelines
+    - SelectFromModel for creating feature selection steps in the pipelines
+    - StandardScaler for scaling data to prepare it for modelling
+    - Train-Test Split for splitting the train and test sets
+    - R2 score, mean squared error and mean absolute error for model evaluation
+
+* XGBoost provided the XGBoost Regressor algorithm
+
+* SciPy was used for the Shapiro-Wilk test for normal distribution
+
+* Predictive Power Score was used for conducting a Predictive Power Score analysis
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+### Code
+
+* I have used Code Institute's [Churnometer walkthrough project](https://github.com/Code-Institute-Solutions/churnometer) for guidance on project approach and structure, as well as copying and adapting sections of the code in several places.
+    - Where code from the project has been used, this is also noted either as a comment in the code or, within the Jupyter notebooks, in the accompanying Markdown commentary.
+
+### Machine Learning Resources, Knowledge and Understanding
+
+* Frequent and extensive reference has also been made to Code Institute's learning materials for the Predictive Analytics specialisation, since this is the learning framework that has equipped me with the vast majority of the knowledge that I have put into building the project.
+* In particular, within the materials for this Predictive Analytics specialisation, I have used the Scikit-Learn section, unit 6, which gives suggested values to use as a starting point for hyperparameter optimisation
+    - Additional resources have been used to select further values to test in hyperparameter optimisation, in particular the [Scikit-Learn documentation for Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html), as well as the following Towards Data Science articles by Will Koehrsen on Hyperparameter Tuning the Random Forest in Python:
+        - [Part 1](https://towardsdatascience.com/improving-random-forest-in-python-part-1-893916666cd)
+        - [Part 2](https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74)
+* I have also made reference to various articles on [Machine Learning Mastery](https://machinelearningmastery.com/), [Towards Data Science](https://towardsdatascience.com/) and [Codecademy](https://www.codecademy.com/) to improve and reinforce my understanding of the concepts learned in this specialisation and hence to create this project.
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+* The dataset used in this project is stored on [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data).
+* The page icon for the dashboard is from [Twemoji](https://twemoji.maxcdn.com/2/test/preview.html).
 
-### Media
+### Acknowledgements
 
-- The photos used on the home and sign-up page are from This Open Source site
-- The images used for the gallery page were taken from this other open-source site
-
-
-
-## Acknowledgements (optional)
-* In case you would like to thank the people that provided support through this project.
-
+* Thank you to my mentor, Mo Shami, for project guidance and review.
