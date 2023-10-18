@@ -16,8 +16,8 @@ The client's primary objective is to maximise the sales price for the inherited 
 
 As such, two business requirements have been agreed with the client:
 
-* **BR1** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
-* **BR2** The client is interested in predicting the house sales price from her four inherited houses, and any other house in Ames, Iowa.
+* **BR1** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
+* **BR2** The client is interested in predicting the house sale price from her four inherited houses, and any other house in Ames, Iowa.
 
 ## Dataset Content
 * The dataset for this project is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). A fictitious user story was created, where predictive analytics can be applied as in a real project in the workplace. 
@@ -50,6 +50,11 @@ As such, two business requirements have been agreed with the client:
 |YearBuilt|Original construction date|1872 - 2010|
 |YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|
 |SalePrice|Sale Price|34900 - 755000|
+
+## Project Terms and Jargon
+
+- **Sale price** of a property is the current market price, in US dollars, of a property with various attributes.
+- **Inherited property** is a property that the client has inherited, and wishes to sell for the maximum price achievable.
 
 ## Hypotheses and how we validated them?
 
@@ -94,8 +99,8 @@ The following hypotheses were developed based on general knowledge of housing an
 
 * The two business requirements that have been agreed with the client are:
 
-* **BR1:** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
-* **BR2:** The client is interested in predicting the house sales price from her four inherited houses, and any other house in Ames, Iowa.
+* **BR1:** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
+* **BR2:** The client is interested in predicting the house sale price from her four inherited houses, and any other house in Ames, Iowa.
 
 Based on these business requirements and considering the potential needs of the various types of user, a number of Epics and User Stories have been developed. The Epics also map to the CRISP-DM (Cross Industry Standard Process for Data Mining) workflow shown below:
 
