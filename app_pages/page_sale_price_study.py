@@ -92,10 +92,21 @@ def page_sale_price_study_body():
 
     df_eda = df.filter(vars_to_study + ['SalePrice'])
     target_var = 'SalePrice'
+
     st.write("#### Data visualisations")
+    
     # Distribution of target variable
     if st.checkbox("Distribution of Target Variable"):
         display_target_hist(df_eda, target_var) 
+
+    # Individual plots for each variable
+    if st.checkbox("Sale Price by Variable"):
+        sale_price_by_variable(df_eda)
+
+# Below are the functions used to display the dashboard plots
+# in the page_sale_price_study_body function (above).
+# These are adapted from notebook "03 Data Analysis"
+# for use with the Streamlit dashboard.
 
 
 def heatmap_corr(df, threshold, figsize=(20, 12), font_annot=8):
@@ -165,7 +176,11 @@ def display_corr_and_pps(df_corr_pearson, df_corr_spearman, pps_matrix, CorrThre
           f"The score ranges from 0 (no predictive power) to 1 (perfect predictive power) \n")
     heatmap_pps(df=pps_matrix, threshold=PPS_Threshold, figsize=figsize, font_annot=font_annot)
 
+
 def display_target_hist(df, target_var):
+    """
+    Creates a histogram to show the target variable
+    """
     fig, axes = plt.subplots(figsize = (8, 6))
     sns.histplot(data = df, x = target_var, kde = True)
     plt.title(f"Distribution of {target_var}")
@@ -173,4 +188,44 @@ def display_target_hist(df, target_var):
     plt.ylabel("Frequency")
     st.pyplot(fig)
 
-    
+
+def sale_price_by_variable(df):
+    """
+    Creates plots showing each variable against the
+    target variable. Plot type is adjusted according
+    to the variable type.
+    """
+    target_var = 'SalePrice'
+    numerical_vars = ['1stFlrSF', 'GarageArea', 'GrLivArea', 'MasVnrArea', 'TotalBsmtSF']
+    categorical_vars = ['OverallQual','KitchenQual']
+    time_series_vars = ['GarageYrBlt', 'YearBuilt', 'YearRemodAdd']
+    for col in df.columns:
+        if col == target_var:
+            continue
+
+        if col in numerical_vars:
+            # plot scatter plots for numerical vars
+            fig, axes = plt.subplots(figsize = (8, 6))
+            sns.scatterplot(data = df, x = col, y = target_var)
+            plt.title(f"Scatter plot of {col} vs. {target_var}")
+            st.pyplot(fig)
+
+        elif col in categorical_vars:
+            # plot violin plots for categorical vars
+            fig, axes = plt.subplots(figsize = (8, 6))
+            sns.violinplot(data = df, x = col, y = target_var)
+            plt.title(f"Violin plot of {col} vs {target_var}")
+            plt.xlabel(col)
+            plt.ylabel(target_var)
+            st.pyplot(fig)
+
+        elif col in time_series_vars:
+            # plot line graphs for time series vars
+            data_for_graphs = df[df[col] != 0]
+            fig, axes = plt.subplots(figsize = (8, 6))
+            sns.lineplot(data = data_for_graphs, x = col, y = target_var)
+            plt.title(f"Line plot of {col} vs {target_var}")
+            plt.xlabel(col)
+            plt.ylabel(target_var)
+            st.pyplot(fig)
+
