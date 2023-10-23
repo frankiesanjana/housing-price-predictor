@@ -13,7 +13,7 @@ class MultiPage:
 
         st.set_page_config(
             page_title=self.app_name,
-            page_icon="🏡") # Icon source: https://twemoji.maxcdn.com/2/test/preview.html
+            page_icon="🏘") # Icon source: https://unicode.org/emoji/charts/full-emoji-list.html
     
     def add_page(self, title, func) -> None:
         # adds a new page to the list of pages
