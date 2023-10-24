@@ -302,7 +302,7 @@ Based on these business requirements and considering the potential needs of the 
 ### Content 
 
 * The dataset used in this project is stored on [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data).
-* The page icon for the dashboard is from [Twemoji](https://twemoji.maxcdn.com/2/test/preview.html).
+* The page icon for the dashboard is from [Twemoji](https://twemoji.maxcdn.com/2/test/preview.html) / [unicode](https://unicode.org/emoji/charts/full-emoji-list.html)
 
 ### Acknowledgements
 
