@@ -26,7 +26,10 @@ def page_summary_body():
         f"containing 1,460 observations on the profile of each house "
         f"(including metrics relating to size, quality, age and condition), "
         f"and the respective sale price of the house, "
-        f"for houses built between 1872 and 2010.")
+        f"for houses built between 1872 and 2010.\n"
+        f"* The project dataset is available on "
+        f"[Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data) "
+        f"via Code Institute")
 
     # Link to README file, so the users can have access to full project documentation
     st.write(

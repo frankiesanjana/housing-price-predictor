@@ -49,10 +49,10 @@ def page_sale_price_study_body():
 
     # Text based on "03 - Data Analysis" notebook
     st.info(
-        f"The heatmaps below were created to highlight variables with significant correlation."
+        f"The heatmaps below were created to highlight variables with significant correlation. "
         f"Heatmaps are displayed for Spearman and Pearson correlations, as well as "
         f"Predictive Power Score. These provide an intuitive visualisation of the variables "
-        f"that are most strongly correlated, highlighting patterns in the data and enabling"
+        f"that are most strongly correlated, highlighting patterns in the data and enabling "
         f"us to see relatively quickly which variables are the most strongly correlated."
     )
 
@@ -65,7 +65,7 @@ def page_sale_price_study_body():
                   figsize=(12,10), font_annot=10)
         
     st.info(
-        f"Once the variables that were most highly correlated with sale price had"
+        f"Once the variables that were most highly correlated with sale price had "
         f"been identified, we were then able to plot graphs to show the relationship "
         f"between each of these variables and a house's sale price. "
         f"Before displaying these plots, we show a histogram of the sale price, "

@@ -149,16 +149,13 @@ Based on these business requirements and considering the potential needs of the 
 
 ## Machine Learning Business Case
 
-[Articulate a Business Case for each Machine Learning task which must include the aim behind the predictive analytics task, the learning method, the ideal outcome for the process, success/failure metrics, model output and its relevance for the user, and any heuristics and training data used.]
-[ensure proper ML terminology is used In the “ML Business Case” section at the README file, as described in the LMS section “Machine Learning Essentials” : “Machine Learning Terminology”]
-
 * A Machine Learning model will be trained in order to meet the second business requirement (BR2).
 
-* We want an ML model to predict the sale price in US dollars of properties in Ames, Iowa, USA.
+* The aim behind the predictive analytics task performed by the Machine Learning model is to predict the sale price in US dollars of properties in Ames, Iowa, USA.
     - The model should allow our client to predict the sale price of four houses that she has inherited.
     - It should also allow prediction of the sale price of other houses with similar attributes.
 
-* Since we are predicting a value that is a continuous variable, using a number of predictor variables, the most appropriate ML task is linear regression (a supervised ML task).
+* The learning method for the ML model is linear regression: since we are predicting a value that is a continuous variable, using a number of predictor variables, the most appropriate ML task is linear regression (a supervised ML task).
     - The sale price is the target variable, i.e., the variable that we are interested in predicting.
 
 * Our ideal outcome is to develop a model that will provide reliable predictions of the sale price of a house based on its known attributes.
@@ -174,7 +171,9 @@ Based on these business requirements and considering the potential needs of the 
         - However, these are not used separately to evaluate the model performance and are presented here for information only.
 
 * The output is defined as a continuous value for sale price in US dollars.
-    - Since the client wishes to find the total sale price for four inherited houses, we will also present the summed predicted sale price for the four houses. However, this will not be included in the live prediction of the model, since the user will enter data for one house at a time.
+    - Since the client wishes to find the total sale price for four inherited houses, we will present the summed predicted sale price for the four houses. However, this will not be included in the live prediction of the model, since the user will enter data for one house at a time.
+    - For live prediction of sale price of a house other than the four inherited houses, the user can enter the values of the relevant features and obtain a prediction of the sale price in real time.
+    - Both the summed sale price and the live prediction are relevant for our client, who already has four inherited houses but anticipates a potential future requirement to predict the sale price of other similar houses from Ames, Iowa.
 
 * Heuristics in general are problem-solving techniques that provide quick and approximate solutions when traditional, more complex methods might be slow or impractical.
     - Heuristics can also serve as preprocessing steps for more advanced machine learning models. For example, they can help in identifying relevant features or patterns that can be used in the development of a predictive model.
@@ -187,18 +186,17 @@ Based on these business requirements and considering the potential needs of the 
 * The training data are a public dataset with house prices for Ames, Iowa, that our client has found via an online search.
     - The dataset contains 1460 observations and 22 features.
     - We do not have information about the recency or reliability of these data, and we note that there are some missing values in the dataset, which have been handled in the [data cleaning notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/02-data-cleaning.ipynb)
-    - Ideally we would check whether the dataset is recent or not before proceeding, since house prices can fluctuate significantly over time, and would prefer a dataset whose reliability has been verified and which has no missing values. However, here we can simply note this as a possible limitation of our dataset, and hence our model and its predictions.
+    - Ideally we would check whether the dataset is recent or not before proceeding, since house prices can fluctuate significantly over time, and would prefer a dataset whose reliability has been verified and which has no missing values. However, here we can simply note this as a possible limitation of our dataset, and hence of our model and its predictions.
 
 ## Dashboard Design
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
 * Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
 * Project Summary
-    - Introduces project
-    - Describes app functionality
+    - Introduces project and describes its functionality
     - Lists project terms and jargon
-    - Describes dataset
-    - Links to README
-    - Lists business requirements
+    - Describes the dataset
+    - Links to the project README
+    - Lists the business requirements
 * House Price Correlation Study
     - Notes the business requirement answered by the correlation study
     - Allows inspection of dataset (via checkbox)

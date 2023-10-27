@@ -86,9 +86,9 @@ def draw_input_widgets():
         feature = "TotalBsmtSF"
         st_widget = st.number_input(
             label = feature,
-            min_value = df[feature].min()*percentage_min,
-            max_value = df[feature].max()*percentage_max,
-            value = df[feature].median()
+            min_value = float(df[feature].min()*percentage_min),
+            max_value = float(df[feature].max()*percentage_max),
+            value = float(df[feature].median())
         )
     X_live[feature] = st_widget
 
@@ -98,12 +98,12 @@ def draw_input_widgets():
         median_value = round(df[feature].median())
         st_widget = st.number_input(
             label = feature,
-            min_value = df[feature].min(),
+            min_value = float(df[feature].min()),
             # set max to 2100, since by then our predictor will likely be obsolete
-            max_value = 2100,
-            value = median_value,
+            max_value = 2100.0,
+            value = float(median_value),
             # restrict input values to whole numbers only
-            step = 1
+            step = 1.0
         )
     X_live[feature] = st_widget
 
@@ -111,9 +111,9 @@ def draw_input_widgets():
         feature = "2ndFlrSF"
         st_widget = st.number_input(
             label = feature,
-            min_value = df[feature].min()*percentage_min,
-            max_value = df[feature].max()*percentage_max,
-            value = df[feature].median()
+            min_value = float(df[feature].min()*percentage_min),
+            max_value = float(df[feature].max()*percentage_max),
+            value = float(df[feature].median())
         )
     X_live[feature] = st_widget
 
@@ -121,9 +121,9 @@ def draw_input_widgets():
         feature = "LotArea"
         st_widget = st.number_input(
             label = feature,
-            min_value = df[feature].min()*percentage_min,
-            max_value = df[feature].max()*percentage_max,
-            value = df[feature].median()
+            min_value = float(df[feature].min()*percentage_min),
+            max_value = float(df[feature].max()*percentage_max),
+            value = float(df[feature].median())
         )
     X_live[feature] = st_widget
 
