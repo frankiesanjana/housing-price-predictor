@@ -72,7 +72,8 @@ def page_predict_price_ml_body():
     st.info(
         f"* The regression performance plots below indicate that our model is "
         f"generally able to provide an acceptable indication of the sale price "
-        f"of a house based on the input features:"
+        f"of a house based on the input features, although we do note that the "
+        f"model appears somewhat less effective for higher value houses."
         )
     regression_evaluation_plots(X_train=X_train, y_train=y_train, 
                                 X_test=X_test, y_test=y_test, 

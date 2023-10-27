@@ -2,7 +2,10 @@ import streamlit as st
 
 
 def predict_sale_price(X_live, house_features, sale_price_pipeline):
-
+    """
+    Applies the pipeline to the live data entered by a user
+    to predict the sale price for a house based on that data
+    """
     # from the live data, subset features related to this pipeline
     X_live_sale_price = X_live.filter(house_features)
 
@@ -16,8 +19,8 @@ def predict_sale_price(X_live, house_features, sale_price_pipeline):
 
     # create a statement to display the results
     statement = (
-        f'The predicted sale price for the house based on the '
-        f'provided attribute values is: **{predicted_sale_price}**.'
+        f"The predicted sale price for the house based on the "
+        f"provided attribute values is: **{predicted_sale_price}**."
     )
 
     st.success(statement)

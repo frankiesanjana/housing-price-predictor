@@ -103,6 +103,7 @@ def page_sale_price_study_body():
     if st.checkbox("Sale Price by Variable"):
         sale_price_by_variable(df_eda)
 
+
 # Below are the functions used to display the dashboard plots
 # in the page_sale_price_study_body function (above).
 # These are adapted from notebook "03 Data Analysis"

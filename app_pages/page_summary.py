@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def page_summary_body():
     """
     Function to display the contents
@@ -14,7 +15,7 @@ def page_summary_body():
         f"The project encompasses both data analysis and machine learning components.\n"
         f"* Through data analysis, it provides insights into the factors influencing "
         f"housing prices, and quantifies their impact.\n"
-        f"The machine learning aspect allows users to input property information via the "
+        f"* The machine learning aspect allows users to input property information via the "
         f"dashboard and receive a prediction of the expected sale price of that property.\n\n"
         f"**Project Terms & Jargon**\n"
          f"* **Sale price** of a property is the current market price, in US dollars,\
@@ -44,7 +45,12 @@ def page_summary_body():
         f"correlate with the sale price. Therefore, the client expects data visualisations "
         f"of the correlated variables against the sale price to show that.\n"
         f"* **BR2** - The client is interested in predicting the house sale price "
-        f" from her four inherited houses, and any other house in Ames, Iowa, USA."
+        f" from her four inherited houses, and any other house in Ames, Iowa, USA.\n"
+        f"* Data analysis is used to address the first of these requirements, and has been "
+        f"successful in finding and visualising correlations between the features and "
+        f"the sale price.\n"
+        f"* **The ML model and pipeline address the second of these requirements, and have "
+        f"been successful in meeting the criteria required to fulfil this requirement.**"
         )
 
         

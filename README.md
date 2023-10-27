@@ -6,7 +6,7 @@ This project has been created for the fifth portfolio project for Code Institute
 
 The project encompasses both data analysis and machine learning components. Through data analysis, it provides insights into the factors influencing housing prices, and quantifies their impact. The machine learning aspect allows users to input property information via the dashboard and receive a prediction of the expected sale price of that property.
 
-The live application can be found [xxx](link).
+The live application can be found [here](https://housing-price-predictor-0ed3160c5a8c.herokuapp.com/).
 
 ## Business Requirements
 
@@ -56,7 +56,7 @@ As such, two business requirements have been agreed with the client:
 - **Sale price** of a property is the current market price, in US dollars, of a property with various attributes.
 - **Inherited property** is a property that the client has inherited, and wishes to sell for the maximum price achievable.
 
-## Hypotheses and how we validated them?
+## Hypotheses and how we validated them
 
 **Project hypotheses and their validation processes**
 
@@ -189,40 +189,54 @@ Based on these business requirements and considering the potential needs of the 
     - Ideally we would check whether the dataset is recent or not before proceeding, since house prices can fluctuate significantly over time, and would prefer a dataset whose reliability has been verified and which has no missing values. However, here we can simply note this as a possible limitation of our dataset, and hence of our model and its predictions.
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
+
 * Project Summary
     - Introduces project and describes its functionality
     - Lists project terms and jargon
-    - Describes the dataset
+    - Describes and links to the dataset
     - Links to the project README
-    - Lists the business requirements
-* House Price Correlation Study
+    - Lists the two business requirements for the project, and informs the reader that each of these has been successfully met
+
+* House Sale Price Study
+    - House Price Correlation Study (BR1)
     - Notes the business requirement answered by the correlation study
     - Allows inspection of dataset (via checkbox)
     - Notes the features with the highest correlation to sale price
-    - Shows plots of correlation between each variable and `SalePrice`
+    - Introduces the heatmaps and explains why they were used
+    - Shows Spearman and Pearson correlation and PPS score heatmaps (via checkbox)
+    - Summarises findings and provides text to help the reader interpret the plots that follow
+    - Shows histogram of target variable `SalePrice` (via checkbox)
+    - Shows plots of correlation between each variable and `SalePrice` (via checkbox)
         - violin plot for categorical
         - scatterplot for numerical
         - line graphs for time series
-    - Shows Spearman and Pearson correlation heatmaps
-    - Shows PPS score
-    - Shows histogram of target variable `SalePrice`
-    - Summarises findings
-* Project Hypotheses and Validation
-    - Lists hypotheses and summarises findings / validation
-* House Price Predictor
+
+* House Sale Price Predictor
+    - Housing Price Predictor (BR2)
     - Notes the business requirement answered by the house price predictor
+    - Shows the raw dataset for the four inherited houses 
     - Shows the four inherited houses' attributes and their predicted sale prices
-    - Shows the summed predicted price for the four inherited houses
+    - Displays the summed predicted price for the four inherited houses
     - Contains interactive input widgets to allow the user to input data from further houses to predict the sale price
     - Displays a button to allow the user to predict the sale price of a house with the details they have added using the ML pipelines developed during the project
-* ML: Housing Price Predictor
+    - When the user enters acceptable feature values into the input widgets and presses the button, displays the predicted price for the property based on the values the user has entered
+
+* Project Hypotheses and Validation
+    - Lists the project hypotheses and summarises the project findings and hypothesis validation
+
+* ML: Housing Price Prediction
     - Summarises the aims, development process and findings of the ML process
     - Displays the ML pipeline to predict house sale price
     - Displays the features that the model was trained on and their importance in a bar chart
     - Displays the pipeline performance metrics: R2 score, MAE, MSE, RMSE, for each of the train and test sets
     - Displays regression evaluation plots showing the predicted and actual sale prices on train and test sets
+
+## Fixed Bugs
+During testing of the deployed dashboard, the following error message was encountered on the House Sale Price Predictor page:
+
+<img src="assets/images/streamlit-dashboard-api-error.png" alt="Dashboard error message">
+
+This was because different values used in creating the widgets had different number formats from one another. This was addressed by converting all numbers to floats. Once this had been done the page functioned as intended.
 
 ## Unfixed Bugs
 * You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
@@ -230,7 +244,7 @@ Based on these business requirements and considering the potential needs of the 
 ## Deployment
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
+* The App live link is: https://housing-price-predictor-0ed3160c5a8c.herokuapp.com/
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -240,6 +254,8 @@ Based on these business requirements and considering the potential needs of the 
 4. Select the branch you want to deploy, then click Deploy Branch.
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+
+Note that during deployment on Heroku, the following warning message was displayed in the build log: `Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.` However, loading times for the dashboard have consistently appeared to be acceptable during testing, so no further action has been taken on this point. 
 
 ## Technologies, Libraries and Packages
 
