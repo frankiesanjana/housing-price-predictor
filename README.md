@@ -190,12 +190,20 @@ Based on these business requirements and considering the potential needs of the 
 
 ## Dashboard Design
 
+* Sidebar for navigation
+The sidebar is used for navigation around the dashboard:
+
+<img src="assets/images/sidebar.png" alt="Dashboard sidebar">
+
 * Project Summary
     - Introduces project and describes its functionality
     - Lists project terms and jargon
     - Describes and links to the dataset
     - Links to the project README
     - Lists the two business requirements for the project, and informs the reader that each of these has been successfully met
+    - Project Summary page:
+
+<img src="assets/images/project-summary.png" alt="Dashboard project summary page">
 
 * House Sale Price Study
     - House Price Correlation Study (BR1)
@@ -210,6 +218,9 @@ Based on these business requirements and considering the potential needs of the 
         - violin plot for categorical
         - scatterplot for numerical
         - line graphs for time series
+    - House Sale Price Study page:
+
+<img src="assets/images/sale-price-study.png" alt="Dashboard sale price study page">
 
 * House Sale Price Predictor
     - Housing Price Predictor (BR2)
@@ -220,9 +231,18 @@ Based on these business requirements and considering the potential needs of the 
     - Contains interactive input widgets to allow the user to input data from further houses to predict the sale price
     - Displays a button to allow the user to predict the sale price of a house with the details they have added using the ML pipelines developed during the project
     - When the user enters acceptable feature values into the input widgets and presses the button, displays the predicted price for the property based on the values the user has entered
+    - House Sale Price Predictor page: top:
+
+<img src="assets/images/sale-price-predictor-page.png" alt="Dashboard sale price predictor page">
+
+    - House Sale Price Predictor page: interactive widgets for user input:
+
+<img src="assets/images/input-widgets.png" alt="Dashboard input widgets">
 
 * Project Hypotheses and Validation
-    - Lists the project hypotheses and summarises the project findings and hypothesis validation
+    - Lists the project hypotheses and summarises the project findings and hypothesis validation:
+
+<img src="assets/images/hypotheses-and-validation.png" alt="Dashboard hypotheses and validation page">
 
 * ML: Housing Price Prediction
     - Summarises the aims, development process and findings of the ML process
@@ -230,6 +250,9 @@ Based on these business requirements and considering the potential needs of the 
     - Displays the features that the model was trained on and their importance in a bar chart
     - Displays the pipeline performance metrics: R2 score, MAE, MSE, RMSE, for each of the train and test sets
     - Displays regression evaluation plots showing the predicted and actual sale prices on train and test sets
+    - ML: Housing Price Prediction page:
+
+<img src="assets/images/ml-price-prediction.png" alt="Dashboard ML: housing price prediction page">
 
 ## Fixed Bugs
 During testing of the deployed dashboard, the following error message was encountered on the House Sale Price Predictor page:
@@ -239,7 +262,7 @@ During testing of the deployed dashboard, the following error message was encoun
 This was because different values used in creating the widgets had different number formats from one another. This was addressed by converting all numbers to floats. Once this had been done the page functioned as intended.
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+To the best of my knowledge, there are no unfixed bugs in the project.
 
 ## Deployment
 ### Heroku
@@ -316,7 +339,6 @@ Note that during deployment on Heroku, the following warning message was display
 ### Content 
 
 * The dataset used in this project is stored on [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data).
-* The page icon for the dashboard is from [Twemoji](https://twemoji.maxcdn.com/2/test/preview.html) / [unicode](https://unicode.org/emoji/charts/full-emoji-list.html)
 
 ### Acknowledgements
 

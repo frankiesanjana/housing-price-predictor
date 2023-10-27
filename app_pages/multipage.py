@@ -2,7 +2,6 @@
 
 import streamlit as st
 
-
 class MultiPage: 
     """
     Class to generate multiple Streamlit pages
@@ -14,7 +13,7 @@ class MultiPage:
 
         st.set_page_config(
             page_title=self.app_name,
-            page_icon="🏘") # Icon source: https://unicode.org/emoji/charts/full-emoji-list.html
+            page_icon="house_buildings")
     
     def add_page(self, title, func) -> None:
         # adds a new page to the list of pages
@@ -24,7 +23,7 @@ class MultiPage:
         """
         Sets title of application, creates sidebar
         with radio button for page selection, and
-        runs the function associated with the page
+        runs the function associated with the
         """
         st.title(self.app_name)
         page = st.sidebar.radio('Menu', self.pages, format_func=lambda page: page['title'])
