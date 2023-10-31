@@ -193,7 +193,7 @@ Based on these business requirements and considering the potential needs of the 
 ## Dashboard Design
 
 * Sidebar for navigation
-The sidebar is used for navigation around the dashboard:
+* The sidebar is used for navigation around the dashboard:
 
 <img src="assets/images/sidebar.png" alt="Dashboard sidebar">
 
@@ -203,7 +203,7 @@ The sidebar is used for navigation around the dashboard:
     - Describes and links to the dataset
     - Links to the project README
     - Lists the two business requirements for the project, and informs the reader that each of these has been successfully met
-    - Project Summary page:
+* Project Summary page:
 
 <img src="assets/images/project-summary.png" alt="Dashboard project summary page">
 
@@ -220,7 +220,7 @@ The sidebar is used for navigation around the dashboard:
         - violin plot for categorical
         - scatterplot for numerical
         - line graphs for time series
-    - House Sale Price Study page:
+* House Sale Price Study page:
 
 <img src="assets/images/sale-price-study.png" alt="Dashboard sale price study page">
 
@@ -233,16 +233,17 @@ The sidebar is used for navigation around the dashboard:
     - Contains interactive input widgets to allow the user to input data from further houses to predict the sale price
     - Displays a button to allow the user to predict the sale price of a house with the details they have added using the ML pipelines developed during the project
     - When the user enters acceptable feature values into the input widgets and presses the button, displays the predicted price for the property based on the values the user has entered
-    - House Sale Price Predictor page: top:
+* House Sale Price Predictor page: top:
 
 <img src="assets/images/sale-price-predictor-page.png" alt="Dashboard sale price predictor page">
 
-    - House Sale Price Predictor page: interactive widgets for user input:
+* House Sale Price Predictor page: interactive widgets for user input:
 
 <img src="assets/images/input-widgets.png" alt="Dashboard input widgets">
 
 * Project Hypotheses and Validation
-    - Lists the project hypotheses and summarises the project findings and hypothesis validation:
+    - Lists the project hypotheses and summarises the project findings and hypothesis validation
+* Project Hypotheses and Validation page:
 
 <img src="assets/images/hypotheses-and-validation.png" alt="Dashboard hypotheses and validation page">
 
@@ -252,7 +253,7 @@ The sidebar is used for navigation around the dashboard:
     - Displays the features that the model was trained on and their importance in a bar chart
     - Displays the pipeline performance metrics: R2 score, MAE, MSE, RMSE, for each of the train and test sets
     - Displays regression evaluation plots showing the predicted and actual sale prices on train and test sets
-    - ML: Housing Price Prediction page:
+* ML: Housing Price Prediction page:
 
 <img src="assets/images/ml-price-prediction.png" alt="Dashboard ML: housing price prediction page">
 
@@ -267,20 +268,72 @@ This was because different values used in creating the widgets had different num
 To the best of my knowledge, there are no unfixed bugs in the project.
 
 ## Deployment
-### Heroku
+### App Deployment with Heroku
 
 * The App live link is: https://housing-price-predictor-0ed3160c5a8c.herokuapp.com/
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+* The project was deployed to Heroku using the following steps:
 
 1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
+* Sign up / log in to [Heroku](https://www.heroku.com/)
+* Create a new app from the Heroku dashboard:
+
+<img src="assets/images/heroku-new.png" alt="Heroku new app button">
+
+* Choose a unique name for your app and select your region, then click "Create app":
+
+<img src="assets/images/heroku-create-app.png" alt="Heroku create app section">
+
+2. At the Deploy tab, select GitHub as the deployment method
+* The Deploy tab can be selected from the tab options that appear along the top of the page:
+
+<img src="assets/images/heroku-tabs.png" alt="Heroku tabs">
+
+* In Heroku, in the Deploy tab:
+    - Select "Connect to GitHub" from the deployment methods section
+    - Search for the name of the GitHub repository to connect to
+    - Click Connect
+    - Your Heroku app should now be connected to your GitHub account:
+
+<img src="assets/images/deployment-connected.png" alt="Heroku GitHub deployment">
+
 3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
+4. Further down the Deploy tab, you have the option to choose to Enable Automatic Deploys or, if you would prefer to deploy manually, select Deploy Branch.
+* Note that if you deploy manually, you will need to re-deploy each time the repository is updated.
+* Note that if you deploy automatically, it is not uncommon to receive a notification that automatic deployment has failed. For this project, this has so far always been successfully fixed by going to Heroku and manually redeploying.
+
+<img src="assets/images/auto-manual-deploy.png" alt="Heroku deployment options">
+
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
 Note that during deployment on Heroku, the following warning message was displayed in the build log: `Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.` However, loading times for the dashboard have consistently appeared to be acceptable during testing, so no further action has been taken on this point. 
+
+## Forking this repository
+It is possible to copy the repository in order to experiment with your own changes without affecting the original project. The steps to do this as as follows:
+
+* Navigate to the GitHub website.
+* Log in if necessary.
+* Navigate to the repository that you want to fork - the repo for this project is Bake It Better.
+* In the top right-hand corner of the page, click on "fork".
+* You will be taken to a page to create your own fork. You can edit the project name and add a description (optional).
+* Click on "create fork" to complete the process.
+
+## Cloning this repository
+It is also possible to copy the repository onto your own local machine. In practice, this might be done to make it easier to fix merge conflicts, add or remove files, and push larger commits. To do this, follow these steps:
+
+* Navigate to the GitHub website.
+* Log in if necessary.
+* Navigate to the repository that you want to clone - the repo for this project is Bake It Better.
+* Above the list of files, find the "Code" button and click on it:
+
+<img src="assets/images/code-button.png" alt="GitHub code button">
+
+* To clone the repository using HTTPS, under "Clone with HTTPS", click the clipboard icon. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click the clipboard icon. To clone a repository using GitHub CLI, click Use GitHub CLI, then click the clipboard icon.
+* Open your computer terminal.
+* Change the current working directory to the location where you want the cloned directory.
+* Type "git clone" and then paste the location that you have copied.
+* Press "enter" and your local clone will be created.
 
 ## Technologies, Libraries and Packages
 

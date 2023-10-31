@@ -2,6 +2,7 @@
 
 import streamlit as st
 
+
 class MultiPage: 
     """
     Class to generate multiple Streamlit pages
@@ -13,7 +14,7 @@ class MultiPage:
 
         st.set_page_config(
             page_title=self.app_name,
-            page_icon="house_buildings")
+            page_icon=":house_buildings:")
     
     def add_page(self, title, func) -> None:
         # adds a new page to the list of pages
