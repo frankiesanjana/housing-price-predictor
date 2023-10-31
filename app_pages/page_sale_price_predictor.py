@@ -95,12 +95,12 @@ def draw_input_widgets():
     with col2:
         feature = "YearBuilt"
         # round the median to the nearest whole year
-        median_value = round(df[feature].median())
+        median_value = int(round(df[feature].median()))
         st_widget = st.number_input(
             label = feature,
             min_value = int(df[feature].min()),
             # set max to 2100, since by then our predictor will likely be obsolete
-            max_value = 2100,
+            max_value = int(2100),
             value = int(median_value),
             # restrict input values to whole numbers only
             step = 1
