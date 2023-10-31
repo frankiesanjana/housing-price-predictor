@@ -98,12 +98,12 @@ def draw_input_widgets():
         median_value = round(df[feature].median())
         st_widget = st.number_input(
             label = feature,
-            min_value = float(df[feature].min()),
+            min_value = round(df[feature].min()),
             # set max to 2100, since by then our predictor will likely be obsolete
-            max_value = 2100.0,
-            value = float(median_value),
+            max_value = 2100,
+            value = median_value,
             # restrict input values to whole numbers only
-            step = 1.0
+            step = 1
         )
     X_live[feature] = st_widget
 
