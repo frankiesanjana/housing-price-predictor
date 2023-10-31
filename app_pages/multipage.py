@@ -3,7 +3,7 @@
 import streamlit as st
 
 
-class MultiPage: 
+class MultiPage:
     """
     Class to generate multiple Streamlit pages
     using an object-oriented approach
@@ -15,10 +15,10 @@ class MultiPage:
         st.set_page_config(
             page_title=self.app_name,
             page_icon=":house_buildings:")
-    
+
     def add_page(self, title, func) -> None:
         # adds a new page to the list of pages
-        self.pages.append({"title": title, "function": func })
+        self.pages.append({"title": title, "function": func})
 
     def run(self):
         """
@@ -27,6 +27,8 @@ class MultiPage:
         runs the function associated with the
         """
         st.title(self.app_name)
-        page = st.sidebar.radio('Menu', self.pages, format_func=lambda page: page['title'])
-        page['function']() 
-
+        page = st.sidebar.radio('Menu',
+                                self.pages,
+                                format_func=lambda page: page['title'])
+        page['function']()
+        

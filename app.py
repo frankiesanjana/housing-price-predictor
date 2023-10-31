@@ -9,7 +9,7 @@ from app_pages.page_project_hypotheses import page_project_hypotheses_body
 from app_pages.page_predict_price_ml import page_predict_price_ml_body
 
 # create an instance of the app
-app = MultiPage(app_name = "Housing Price Predictor")
+app = MultiPage(app_name="Housing Price Predictor")
 
 # add app pages
 app.add_page("Project Summary", page_summary_body)

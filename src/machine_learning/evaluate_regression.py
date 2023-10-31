@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
-# The following functions are adapted from notebook 05, Modelling and Evaluation
+# The following functions are adapted from notebook 05 Modelling and Evaluation
 
 
 def regression_performance(X_train, y_train, X_test, y_test, pipeline):
@@ -19,14 +19,17 @@ def regression_performance(X_train, y_train, X_test, y_test, pipeline):
 def regression_evaluation(X, y, pipeline):
     prediction = pipeline.predict(X)
     st.write('R2 Score:', r2_score(y, prediction).round(3))
-    st.write('Mean Absolute Error:', mean_absolute_error(y, prediction).round(3))
-    st.write('Mean Squared Error:', mean_squared_error(y, prediction).round(3))
+    st.write('Mean Absolute Error:',
+             mean_absolute_error(y, prediction).round(3))
+    st.write('Mean Squared Error:',
+             mean_squared_error(y, prediction).round(3))
     st.write('Root Mean Squared Error:', np.sqrt(
         mean_squared_error(y, prediction)).round(3))
     st.write("\n")
 
 
-def regression_evaluation_plots(X_train, y_train, X_test, y_test, pipeline, alpha_scatter=0.5):
+def regression_evaluation_plots(X_train, y_train, X_test,
+                                y_test, pipeline, alpha_scatter=0.5):
     pred_train = pipeline.predict(X_train)
     pred_test = pipeline.predict(X_test)
 

@@ -11,7 +11,7 @@ def predict_sale_price(X_live, house_features, sale_price_pipeline):
 
     # apply the pipeline to the live data and predict the sale price
     sale_price_prediction = sale_price_pipeline.predict(X_live_sale_price)
-    
+
     # format the predicted price to round and show dollar sign
     # we round to the nearest whole dollar
     sale_price_prediction = float(sale_price_prediction)
@@ -24,3 +24,4 @@ def predict_sale_price(X_live, house_features, sale_price_pipeline):
     )
 
     st.success(statement)
+    
