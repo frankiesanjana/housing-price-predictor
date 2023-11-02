@@ -57,6 +57,7 @@ As such, two business requirements have been agreed with the client:
 
 - **Sale price** of a property is the current market price, in US dollars, of a property with various attributes.
 - **Inherited property** is a property that the client has inherited, and wishes to sell for the maximum price achievable.
+- Although not strictly "terms and jargon", we add a note here to remind users that all price data within this project are in US dollars and all areas are measured in square feet.
 
 ## Hypotheses and how we validated them
 
@@ -262,10 +263,61 @@ During testing of the deployed dashboard, the following error message was encoun
 
 <img src="assets/images/streamlit-dashboard-api-error.png" alt="Dashboard error message">
 
-This was because different values used in creating the widgets had different number formats from one another. This was addressed by converting all numbers to floats. Once this had been done the page functioned as intended.
+This was because different values used in creating the widgets had different number formats from one another.
+* This was addressed by converting all numbers to floats in the input widgets, except for the widget for `YearBuilt` where all numbers have been converted to integers.
+    - Converting the number type to integer rather than float for `YearBuilt` was necessary to prevent users from inputting non-integer values for the build year of a house (for example, we do not want to allow 1973.5 as an input, only 1973 or 1974).
+* Once this had been done the page functioned as intended.
 
 ## Unfixed Bugs
 To the best of my knowledge, there are no unfixed bugs in the project.
+
+## Testing
+
+Testing was carried out in a number of ways:
+
+* Continuous testing of Jupyter Notebooks as they were developed: in practice, this means that the notebooks have all been run multiple times.
+    - Errors were generally related to missing imports and were simple to correct.
+    - The notebooks have all been run in their entirety as a final check.
+    - Note that the cells can take some time to run successfully, particularly in the modelling notebook, "Notebook 05 - Modelling & Evaluation".
+
+* Streamlit dashboard testing locally
+    - The dashboard was tested continuously by running the local server during its development.
+    - Each time a new dashboard section or piece of functionality was created, I ran the server in order to test whether it functioned as intended, using the command `streamlit run app.py` in the terminal.
+    - Where a checkbox was added to the dashboard, I verified that selecting and deselecting the checkbox displayed and hid the relevant content as appropriate.
+    - I ran the price predictor a number of times with different inputs, in order to verify that the input widgets worked as intended and the sale price was predicted correctly.
+    - No bugs or errors were discovered during this phase of testing.
+
+* Streamlit dashboard testing of the deployed dashboard
+    - The steps undertaken above to test the dashboard when it was running locally were repeated on the deployed app in Heroku.
+    - Notably, the bug described above in the "Fixed Bugs" section did not appear when the dashboard was run locally, so there are a number of commits relating to testing and fixing this bug.
+
+* User testing
+    - User testing has been undertaken for two main reasons:
+        - To ensure that a new user can understand the dashboard's purpose and functionality
+        - To ensure that a user cannot cause errors in the widgets' functionality by typing in non-numerical values, or otherwise "break" the dashboard
+
+* Results from user testing to understand the dashboard's functionality
+    - It was generally felt during user testing that the dashboard was self-explanatory and clear.
+    - However, the absence of units and chart titles was noted, and it was felt that it might be helpful to add a note to remind users that variables such as `LotArea`, where the units are not specified, are in square feet.
+    - As it happens, this is particularly relevant, since our client is in Belgium, where areas would always be given in square metres rather than square feet.
+
+* Results from user testing to ensure that user input or use of the dashboard cannot cause errors
+    - It was noted during user testing that unlike most non-numerical characters, the parentheses () and the letter 'e' do appear on screen when typed into the widgets.
+    - I initially wondered whether this might be to allow reference to [Euler's number](https://en.wikipedia.org/wiki/E_(mathematical_constant)); however, searching online confirms that it is to allow the use of e as an exponent; see [this Stack Overflow thread](https://stackoverflow.com/questions/31706611/why-does-the-html-input-with-type-number-allow-the-letter-e-to-be-entered-in).
+    - For this usage, the inputs function correctly. For example, in the Stack Overflow thread referenced above, an example is given as follows: "using the e is useful for condensing large numbers that would be otherwise tedious to type out. As a trivial example, 2e2 = 2*10^2 = 200"
+        - Typing `2e2` into the input widgets causes this functionality to work as intended for the inputs where it is in range (`TotalBsmtSF` and `2ndFlrSF`): when the user then clicks out of the widget or presses Enter the numerical value in the widget changes to read 200 as intended.
+        - The `e` notation also functions identically to other numbers if a value outside the range of the input widgets is entered. For example, typing `2e2` into the `LotArea` causes the warning message to display, because the minimum value for this widget is 260 and the value of 2e2 = 2*10^2 = 200, which is less than 260.
+        - For values entered using the e notation that are outside the range, and for any other numerical value that is entered outside this range, as soon as the user presses Enter or clicks anywhere outside the widget, including clicking on the 'Predict Sale Price' button, widgets containing any of these characters are returned to their default values.
+        - We therefore concluded that this functionality is working as intended, and no further action needs to be taken.
+
+* Validator testing
+    - Python files were run through the [CI Python Linter](https://pep8ci.herokuapp.com/).
+    - Although no major errors were discovered, there were several "line too long" notifications, as well as some spacing and whitespace issues.
+    - As an example, the linter results from the file `multipage.py` are shown below before and after tidying:
+
+<img src="assets/images/multipage-py.png" alt="Linter testing pre cleaning">
+
+<img src="assets/images/multipage-py-cleaned.png" alt="Linter testing after cleaning">
 
 ## Deployment
 ### App Deployment with Heroku
