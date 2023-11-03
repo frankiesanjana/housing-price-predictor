@@ -137,7 +137,7 @@ Based on these business requirements and considering the potential needs of the 
     - **US3:** As any user, I want to understand the project hypotheses and how they were validated, so that I can better understand the determinants of a property's sale price.
         - Task: interpret the data from the heatmaps described above and highlight how these data confirm the project hypotheses.
 
-* User Stories relating to BR2 are addressed in the [modelling and evaluation notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/05-modelling-evaluation.ipynb) and the dashboard, and are as follows:
+* User Stories relating to BR2 are addressed in the [modelling and evaluation notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/05-modelling-evaluation.ipynb) and the [dashboard](https://housing-price-predictor-0ed3160c5a8c.herokuapp.com/), and are as follows:
     - **US4:** As the client, I want to be able to reliably predict the sale price of the houses I have inherited, so that I can sell them for the greatest possible price.
         - Task: conduct regression analysis using machine learning so that the sale price can be predicted from the most relevant features (note: regression analysis is a supervised ML task that is used to predict the value of the label from a set of related features)
         - Note: if the model's performance using regression analysis is poor, this could be changed to a classification problem: another supervised ML task, but where the category of a house's sale price is predicted rather than a value. Categories in this case could be in a format such as "up to and including price A", "between price A and price B", "equal to or greater than price B".
@@ -150,7 +150,7 @@ Based on these business requirements and considering the potential needs of the 
     - **US8:** As a technical user, I want to know the technical details relating to model performance, so that I can understand how reliable the predictions are.
         - Task: Note the model evaluation metrics and display the regression evaluation plots relating to train and test sets.
 
-* User Stories relating to both BRs are addressed in the dashboard, and are as follows:
+* User Stories relating to both BRs are addressed in the [dashboard](https://housing-price-predictor-0ed3160c5a8c.herokuapp.com/), and are as follows:
     - **US9:** As the client, I want to be able to access a dashboard that is easy to interpret and use, so that I can easily view the results of the analysis and modelling.
         - Task: Provide a dashboard to the client and ensure that it is clear and easy to use, with any necessary instructions provided to the user.
     - **US10:** As any user, I want the dashboard to be available online, so that it is readily accessible for all users.
@@ -196,7 +196,7 @@ Based on these business requirements and considering the potential needs of the 
 
 * The training data are a public dataset with house prices for Ames, Iowa, that our client has found via an online search.
     - The dataset contains 1460 observations and 22 features.
-    - We do not have information about the recency or reliability of these data, and we note that there are some missing values in the dataset, which have been handled in the [data cleaning notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/02-data-cleaning.ipynb)
+    - We do not have information about the recency or reliability of these data, and we note that there are some missing values in the dataset, which have been handled in the [data cleaning notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/02-data-cleaning.ipynb).
     - Ideally we would check whether the dataset is recent or not before proceeding, since house prices can fluctuate significantly over time, and would prefer a dataset whose reliability has been verified and which has no missing values. However, here we can simply note this as a possible limitation of our dataset, and hence of our model and its predictions.
 
 ## Dashboard Design
@@ -312,7 +312,7 @@ Testing was carried out in a number of ways:
 * Results from user testing to ensure that user input or use of the dashboard cannot cause errors
     - It was noted during user testing that unlike most non-numerical characters, the parentheses () and the letter 'e' do appear on screen when typed into the widgets.
     - I initially wondered whether this might be to allow reference to [Euler's number](https://en.wikipedia.org/wiki/E_(mathematical_constant)); however, searching online confirms that it is to allow the use of e as an exponent; see [this Stack Overflow thread](https://stackoverflow.com/questions/31706611/why-does-the-html-input-with-type-number-allow-the-letter-e-to-be-entered-in).
-    - For this usage, the inputs function correctly. For example, in the Stack Overflow thread referenced above, an example is given as follows: "using the e is useful for condensing large numbers that would be otherwise tedious to type out. As a trivial example, 2e2 = 2*10^2 = 200"
+    - For this usage, the inputs function correctly. For example, in the Stack Overflow thread referenced above, an example is given as follows: "using the e is useful for condensing large numbers that would be otherwise tedious to type out. As a trivial example, 2e2 = 2*10^2 = 200".
         - Typing `2e2` into the input widgets causes this functionality to work as intended for the inputs where it is in range (`TotalBsmtSF` and `2ndFlrSF`): when the user then clicks out of the widget or presses Enter the numerical value in the widget changes to read 200 as intended.
         - The `e` notation also functions identically to other numbers if a value outside the range of the input widgets is entered. For example, typing `2e2` into the `LotArea` causes the warning message to display, because the minimum value for this widget is 260 and the value of 2e2 = 2*10^2 = 200, which is less than 260.
         - For values entered using the e notation that are outside the range, and for any other numerical value that is entered outside this range, as soon as the user presses Enter or clicks anywhere outside the widget, including clicking on the 'Predict Sale Price' button, widgets containing any of these characters are returned to their default values.
@@ -458,3 +458,4 @@ It is also possible to copy the repository onto your own local machine. In pract
 ### Acknowledgements
 
 * Thank you to my mentor, Mo Shami, for project guidance and review.
+* Thank you to Ed Stanley for user testing and feedback.
