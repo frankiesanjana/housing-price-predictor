@@ -110,16 +110,24 @@ Based on these business requirements and considering the potential needs of the 
 <img src="assets/images/crisp-dm.png" alt="CRISP-DM process">
 
 **Epic 1:** Business Understanding
+* CRISP-DM step: Business Understanding
 
 **Epic 2:** Information gathering and data collection
+* CRISP-DM step: Data Understanding
 
 **Epic 3:** Data visualisation, cleaning, and preparation
+* CRISP-DM steps: Data Understanding, Data Preparation
 
 **Epic 4:** Model training, optimisation and validation
+* CRISP-DM steps: Modelling
 
 **Epic 5:** Dashboard planning, designing, and development
+* CRISP-DM steps: Business Understanding, Data Understanding (these steps relate to the planning and design of the dashboard); Deployment (relating to the development of the dashboard in preparation for deployment)
 
 **Epic 6:** Dashboard deployment and release
+* CRISP-DM step: Deployment
+
+**User Stories:**
 
 * User Stories relating to BR1 are addressed in the [data analysis notebook](https://github.com/frankiesanjana/housing-price-predictor/blob/main/jupyter_notebooks/03-data-analysis.ipynb) and are as follows:
     - **US1:** As any user, I want to know which attributes of a house are most correlated with its sale price so that I can base my predictions on the most appropriate features.

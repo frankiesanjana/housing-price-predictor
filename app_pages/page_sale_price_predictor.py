@@ -75,7 +75,8 @@ def page_sale_price_predictor_body():
     st.write(
         f"* To predict the sale price of another house, please enter values "
         f"for the following attributes of the house and click the 'Predict "
-        f"Sale Price' button:"
+        f"Sale Price' button (note that all areas are measured in "
+        f"square feet):"
     )
 
     X_live = draw_input_widgets()

@@ -208,7 +208,7 @@ def display_target_hist(df, target_var):
     fig, axes = plt.subplots(figsize=(8, 6))
     sns.histplot(data=df, x=target_var, kde=True)
     plt.title(f"Distribution of {target_var}")
-    plt.xlabel(target_var)
+    plt.xlabel(f"{target_var}, US Dollars")
     plt.ylabel("Frequency")
     st.pyplot(fig)
 
@@ -232,14 +232,14 @@ def sale_price_by_variable(df):
             # plot scatter plots for numerical vars
             fig, axes = plt.subplots(figsize=(8, 6))
             sns.scatterplot(data=df, x=col, y=target_var)
-            plt.title(f"Scatter plot of {col} vs. {target_var}")
+            plt.title(f"Scatter plot of {col} (sqft) vs. {target_var} (USD)")
             st.pyplot(fig)
 
         elif col in categorical_vars:
             # plot violin plots for categorical vars
             fig, axes = plt.subplots(figsize=(8, 6))
             sns.violinplot(data=df, x=col, y=target_var)
-            plt.title(f"Violin plot of {col} vs {target_var}")
+            plt.title(f"Violin plot of {col} vs {target_var} (USD)")
             plt.xlabel(col)
             plt.ylabel(target_var)
             st.pyplot(fig)
@@ -249,7 +249,7 @@ def sale_price_by_variable(df):
             data_for_graphs = df[df[col] != 0]
             fig, axes = plt.subplots(figsize=(8, 6))
             sns.lineplot(data=data_for_graphs, x=col, y=target_var)
-            plt.title(f"Line plot of {col} vs {target_var}")
+            plt.title(f"Line plot of {col} vs {target_var} (USD)")
             plt.xlabel(col)
             plt.ylabel(target_var)
             st.pyplot(fig)
