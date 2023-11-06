@@ -87,11 +87,11 @@ The following hypotheses were developed based on general knowledge of housing an
     - `OverallQual` has a Spearman correlation coefficient of 0.81 and a Pearson correlation coefficient of 0.79 with `SalePrice`.
     - `KitchenQual` does not have a high enough correlation coefficient with `SalePrice` to appear on our heatmaps, where the threshold for positive correlation is 0.4.
     - However, we see from the Power Predictive Score heatmap that both `OverallQual` and `KitchenQual` have reasonable correlations with `SalePrice` of 0.44 and 0.26 respectively.
-    - If our hypothesis is true, we would in any case expect the overall quality of a house to have more correlation with its value than the quality of one room only. The correlation coefficients to `SalePrice` for both Spearman and Pearson correlations are strong. We can therefore also validate this hypothesis.
+    - If our hypothesis is true, we would in any case expect the overall quality of a house to have more correlation with its value than the quality of one room only. The correlation coefficients of `OverallQual` to `SalePrice` for both Spearman and Pearson correlations are strong. We can therefore also validate this hypothesis.
     - We conclude that the quality of a house is positively correlated with its sale price.
 
 **Hypothesis 3: The year of construction of a house is positively correlated with its sale price (i.e., more recently constructed houses have higher sale prices)**
-* The main variable relating to the age of a house is `YearBuilt`. We could also consider remodelling of a property (`YearRemodAdd`) and the year its garage was constructed (`GarageYrBlt`) to seek supporting evidence.
+* The main variable relating to the age of a house is `YearBuilt`. We could also consider the year of remodelling of a property (`YearRemodAdd`) and the year its garage was constructed (`GarageYrBlt`) to seek supporting evidence.
     - `YearBuilt` has a Spearman correlation coefficient of 0.65 and a Pearson correlation coefficient of 0.52 with `SalePrice`.
     - `YearRemodAdd` also shows correlation; it has a Spearman correlation coefficient of 0.57 and a Pearson correlation coefficient of 0.51 with `SalePrice`.
     - `GarageYrBlt` has a Spearman correlation coefficient of 0.63 with `SalePrice`, though we note that it does not meet our threshold of 0.4 for Pearson correlation.
@@ -119,7 +119,7 @@ Based on these business requirements and considering the potential needs of the 
 * CRISP-DM steps: Data Understanding, Data Preparation
 
 **Epic 4:** Model training, optimisation and validation
-* CRISP-DM steps: Modelling
+* CRISP-DM steps: Modelling, Evaluation
 
 **Epic 5:** Dashboard planning, designing, and development
 * CRISP-DM steps: Business Understanding, Data Understanding (these steps relate to the planning and design of the dashboard); Deployment (relating to the development of the dashboard in preparation for deployment)
@@ -302,7 +302,7 @@ Testing was carried out in a number of ways:
 * User testing
     - User testing has been undertaken for two main reasons:
         - To ensure that a new user can understand the dashboard's purpose and functionality
-        - To ensure that a user cannot cause errors in the widgets' functionality by typing in non-numerical values, or otherwise "break" the dashboard
+        - To ensure that a user cannot cause errors in the widgets' functionality by typing in non-numerical or out-of-range values, or otherwise "break" the dashboard
 
 * Results from user testing to understand the dashboard's functionality
     - It was generally felt during user testing that the dashboard was self-explanatory and clear.
@@ -311,7 +311,7 @@ Testing was carried out in a number of ways:
 
 * Results from user testing to ensure that user input or use of the dashboard cannot cause errors
     - It was noted during user testing that unlike most non-numerical characters, the parentheses () and the letter 'e' do appear on screen when typed into the widgets.
-    - I initially wondered whether this might be to allow reference to [Euler's number](https://en.wikipedia.org/wiki/E_(mathematical_constant)); however, searching online confirms that it is to allow the use of e as an exponent; see [this Stack Overflow thread](https://stackoverflow.com/questions/31706611/why-does-the-html-input-with-type-number-allow-the-letter-e-to-be-entered-in).
+    - I initially wondered whether allowing the letter 'e' might be to allow reference to [Euler's number](https://en.wikipedia.org/wiki/E_(mathematical_constant)); however, searching online confirms that it is to allow the use of e as an exponent; see [this Stack Overflow thread](https://stackoverflow.com/questions/31706611/why-does-the-html-input-with-type-number-allow-the-letter-e-to-be-entered-in).
     - For this usage, the inputs function correctly. For example, in the Stack Overflow thread referenced above, an example is given as follows: "using the e is useful for condensing large numbers that would be otherwise tedious to type out. As a trivial example, 2e2 = 2*10^2 = 200".
         - Typing `2e2` into the input widgets causes this functionality to work as intended for the inputs where it is in range (`TotalBsmtSF` and `2ndFlrSF`): when the user then clicks out of the widget or presses Enter the numerical value in the widget changes to read 200 as intended.
         - The `e` notation also functions identically to other numbers if a value outside the range of the input widgets is entered. For example, typing `2e2` into the `LotArea` causes the warning message to display, because the minimum value for this widget is 260 and the value of 2e2 = 2*10^2 = 200, which is less than 260.
@@ -374,7 +374,7 @@ It is possible to copy the repository in order to experiment with your own chang
 
 * Navigate to the GitHub website.
 * Log in if necessary.
-* Navigate to the repository that you want to fork - the repo for this project is Bake It Better.
+* Navigate to the repository that you want to fork - the repo for this project is [Housing Price Predictor](https://github.com/frankiesanjana/housing-price-predictor).
 * In the top right-hand corner of the page, click on "fork".
 * You will be taken to a page to create your own fork. You can edit the project name and add a description (optional).
 * Click on "create fork" to complete the process.
@@ -384,7 +384,7 @@ It is also possible to copy the repository onto your own local machine. In pract
 
 * Navigate to the GitHub website.
 * Log in if necessary.
-* Navigate to the repository that you want to clone - the repo for this project is Bake It Better.
+* Navigate to the repository that you want to clone - the repo for this project is [Housing Price Predictor](https://github.com/frankiesanjana/housing-price-predictor).
 * Above the list of files, find the "Code" button and click on it:
 
 <img src="assets/images/code-button.png" alt="GitHub code button">
